@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Encryption and Decryption</title>
+    <link rel="stylesheet" type="text/css" href="../static/index.css">
+</head>
+<body>
+    <h1>Encryption and Decryption</h1>
+    
+    <div class="form-container">
+        <div class="form-row">
+            <label for="type">Select form:</label>
+            <select title="Select the input information form:" name="form" id="form-select">
+                <option value="Binary" selected>Binary</option>
+                <option value="ASCII">ASCII</option>
+            </select>
+        </div>
+        <div class="form-row">
+            <label for="message">Message:</label>
+            <input type="text" id="message" placeholder="Enter your message">
+        </div>
+        <div class="form-row">
+            <label for="key">Key:</label>
+            <input type="text" id="key" placeholder="Enter your key">
+        </div>
+    </div>
+
+    <div class="buttons-container">
+        <button id="Encrypt" onclick="encryptMessage()">Encrypt</button>
+        <button id="Decrypt" onclick="decryptMessage()">Decrypt</button>
+    </div>
+
+    <div id="iframeContainer">
+        <iframe title="iframe-title" id="iframe" src="about:blank"></iframe>
+    </div>
+    <br/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+        function sendRequest(form,message,key,action) {
+            $.ajax({
+                type:"POST",
+                url:"/"+action,
+                timeout:5000,
+                contentType: "application/json",
+                data: JSON.stringify({              // 将数据转换为JSON字符串
+                    form: form,
+                    message: message,
+                    key:key
+                }),
+                success:function(responseData){
+                    console.log(responseData);
+                    if (action == 'encryptMessage'){
+                        var my_iframe = document.getElementById('iframe');
+                        my_iframe.contentDocument.body.innerHTML = "";
+                        if (form == 'ASCII'){
+                            var encodedString = responseData;
+                            var parser = new DOMParser();
+                            var decodedDocument = parser.parseFromString('<!doctype html><body>' + encodedString, 'text/html');
+                            var responseData = decodedDocument.body.textContent;
+                        }
+                        my_iframe.contentDocument.body.innerHTML = "密文为: " + responseData;
+                    }
+                    else if (action == 'decryptMessage'){
+                        var my_iframe = document.getElementById('iframe');
+                        my_iframe.contentDocument.body.innerHTML = "";
+                        if (form == 'ASCII'){
+                            var encodedString = responseData;
+                            var parser = new DOMParser();
+                            var decodedDocument = parser.parseFromString('<!doctype html><body>' + encodedString, 'text/html');
+                            var responseData = decodedDocument.body.textContent;
+                        }
+                        my_iframe.contentDocument.body.innerHTML = "明文为: " + responseData;
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.log("Error: " + error);
+                }
+            });
+        }
+
+        function encryptMessage() {
+            event.preventDefault();
+            var form = document.getElementById('form-select').value;
+            var message = document.getElementById("message").value;
+            var key = document.getElementById("key").value;
+            if (form === 'Binary' && !isValidBinaryMessage(message)) {
+                alert("message(Binary)的长度必须是8的整数倍! 请重新输入");
+                return;
+            }
+
+            if (!isValidKey(key)) {
+                alert("密钥必须是Binary(10-bit)! 请重新输入");
+                return;
+            }
+            sendRequest(form, message, key, 'encryptMessage');
+        }
+
+        function decryptMessage() {
+            event.preventDefault();
+            var form = document.getElementById('form-select').value;
+            var message = document.getElementById("message").value;
+            var key = document.getElementById("key").value;
+
+            if (form === 'Binary' && !isValidBinaryMessage(message)) {
+                alert("message(Binary)的长度必须是8的整数倍! 请重新输入");
+                return;
+            }
+
+            if (!isValidKey(key)) {
+                alert("密钥必须是Binary(10-bit)! 请重新输入");
+                return;
+            }
+            sendRequest(form, message, key, 'decryptMessage');
+        }
+
+        // message如果是字符串,长度只能是8-bit的整数倍
+        function isValidBinaryMessage(message) {
+            if (message.length % 8 !== 0 || !/^[01]+$/.test(message)) {
+                return false;
+            }
+            return true;
+        }
+        // key只能是Binary(10-bit)字符串
+        function isValidKey(key){
+            if (key.length !== 10 || !/^[01]+$/.test(key)) {
+                return false;
+            }
+            return true;
+        }
+
+        $(document).ready(function() {
+            $("#form-select, #message, #key").change(function() {
+                // 重置iframe内容
+                var my_iframe = document.getElementById("iframe");
+                my_iframe.srcdoc = "";
+                });
+
+            $("#Encrypt").click(function() {
+                encryptMessage();
+            });
+
+            $("#Decrypt").click(function() {
+                decryptMessage();
+            });
+
+        });
+    </script>
+</body>
+</html>

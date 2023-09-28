@@ -156,4 +156,162 @@ GUI界面设计：
 
 
 ## 用户指南
+#### 1.介绍
 
+1.1 什么是S-DES？
+
+欢迎使用S-DES（Simplified Data Encryption Standard）加密工具。S-DES（Simplified Data Encryption Standard）是一种轻量级的对称加密算法，旨在保护数据的机密性。它适用于嵌入式系统和教育用途。
+
+1.2 用户指南概览
+
+本用户指南将帮助您了解如何使用S-DES来加密和解密数据，以及了解有关S-DES的基本原理和安全性考虑。
+
+
+
+#### 2.S-DES基础
+
+2.1 S-DES的工作原理
+
+S-DES使用Feistel网络结构，将明文数据分成两半，然后进行一系列的置换和替代操作，最终生成密文。这个过程可以通过反向操作来解密。
+
+2.2 加密和解密
+
+加密：输入明文和密钥，执行加密操作得到密文；
+
+解密：输入密文和正确的密钥，执行解密操作得到明文。
+
+2.3 密钥生成
+
+密钥生成是S-DES中关键的一步。它从10bit密钥生成两个8bit子密钥，用于加密和解密过程。
+
+2.4 GUI界面
+
+
+
+
+
+#### 3.使用S-DES加密数据
+
+3.1 准备工作
+
+在使用S-DES加密数据之前，您需要：
+
+-   获取一个有效的S-DES密钥（10bit）。
+
+-   准备要加密的明文数据。
+
+3.2 示例：如何使用S-DES加密二进制数据
+
+
+
+3.3 示例：如何使用S-DES加密ASCII字符串
+
+
+
+#### 4.使用S-DES解密数据
+
+4.1 准备工作
+
+在使用S-DES解密数据之前，您需要：
+
+-   获取一个有效的S-DES密钥(10bit)。
+
+-   准备要解密的密文数据。
+
+4.2 示例：如何使用S-DES解密数据
+
+
+
+4.3 示例：如何使用S-DES解密ASCII字符串
+
+
+
+
+
+#### 5.S-DES的参数设置
+
+5.1 密钥长度
+
+S-DES使用二进制10bit密钥
+
+5.2 密钥扩展置换
+
+
+
+
+
+5.3 初始置换盒
+
+
+
+5.4 最终置换盒
+
+
+
+5.5 扩展置换盒
+
+
+
+5.6替换盒
+
+SBox1:
+
+
+
+SBox2:
+
+
+
+SPBox:
+
+
+
+
+
+#### 6.安全性和注意事项
+
+6.1 S-DES的安全性
+
+S-DES算法的密钥空间相对较小，不是高度安全的加密算法，不适用于处理高度敏感的数据。了解其局限性并采取必要的安全措施。
+
+6.2 密钥管理
+
+密钥的安全存储和分发是使用S-DES时的关键问题。确保密钥不会泄露给未授权的人员。
+
+#### 7.常见问题解答
+
+Q: S-DES与标准DES的区别
+
+A: S-DES是标准DES的简化版本，主要区别在于密钥长度和轮数。标准DES使用56位密钥和16轮Feistel网络运算，更安全但也更复杂。
+
+Q: 为什么我无法解密我的数据
+
+A: 请检查您输入的密钥是否正确，确保与加密时使用的密钥相同。
+
+Q: 我忘记了密钥，如何解密数据？
+
+A: 如果您忘记了密钥，无法解密数据，因为S-DES是对称加密算法，密钥是解密的关键。
+
+Q: 是否有S-DES的编程库或工具？
+
+A: S-DES的编程库和工具可能存在，但不如更现代的加密标准普遍。您可以搜索相关资源或开发自己的S-DES实现。
+
+#### 8.技术支持和反馈
+
+如果您遇到任何问题或需要技术支持，请联系我们的技术支持团队：0123456789\@qq.com
+
+#### 9.附录
+
+9.1 参考文献：
+
+\[1\]\"Cryptography and Network Security: Principles and Practice\" by William Stallings - 本书提供了对S-DES算法的详细说明，以及与计算机网络和信息安全相关的其他内容。
+
+\[2\]\"Cryptography and Network Security: Principles and Practice\" by Behrouz A. Forouzan and Debdeep Mukhopadhyay - 本书涵盖了S-DES算法的基本概念，以及与网络安全和密码学相关的其他主题。
+
+\[3\]\"Introduction to Modern Cryptography: Principles and Protocols\" by Jonathan Katz and Yehuda Lindell - 这本书提供了对S-DES算法的简要介绍，同时还涵盖了现代密码学的其他方面。
+
+\[4\]\"Understanding Cryptography: A Textbook for Students and Practitioners\" by Christof Paar and Jan Pelzl - 本书详细介绍了密码学的基本概念，包括对S-DES算法的讲解。
+
+#### 10.版本历史
+
+版本1.0（2023年10月1日），初始版本。

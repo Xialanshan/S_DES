@@ -186,7 +186,7 @@ S-DES使用Feistel网络结构，将明文数据分成两半，然后进行一�
 
 2.4 GUI界面
 
-
+<img width="428" alt="image" src="https://github.com/Xialanshan/S_DES/assets/110965468/f8f669eb-ea9b-4c75-b9d4-d2075ad6e749">
 
 
 
@@ -202,10 +202,12 @@ S-DES使用Feistel网络结构，将明文数据分成两半，然后进行一�
 
 3.2 示例：如何使用S-DES加密二进制数据
 
+<img width="411" alt="image" src="https://github.com/Xialanshan/S_DES/assets/110965468/a4cc39fd-1407-4cff-95d9-4870a52ddc17">
 
 
 3.3 示例：如何使用S-DES加密ASCII字符串
 
+<img width="398" alt="image" src="https://github.com/Xialanshan/S_DES/assets/110965468/f475b733-2691-4357-ba3e-fca82d6895dc">
 
 
 #### 4.使用S-DES解密数据
@@ -220,11 +222,13 @@ S-DES使用Feistel网络结构，将明文数据分成两半，然后进行一�
 
 4.2 示例：如何使用S-DES解密数据
 
+<img width="362" alt="image" src="https://github.com/Xialanshan/S_DES/assets/110965468/6e292772-db74-414e-92f9-673e514c290e">
 
 
 4.3 示例：如何使用S-DES解密ASCII字符串
 
 
+<img width="356" alt="image" src="https://github.com/Xialanshan/S_DES/assets/110965468/4c975dfe-15d5-462a-ae4f-ea331c92eb1e">
 
 
 
@@ -237,34 +241,41 @@ S-DES使用二进制10bit密钥
 5.2 密钥扩展置换
 
 
+<img width="318" alt="image" src="https://github.com/Xialanshan/S_DES/assets/110965468/fef85d39-0982-4caf-ae1b-fa4aaadd1f0a">
 
 
 
 5.3 初始置换盒
 
+<img width="300" alt="image" src="https://github.com/Xialanshan/S_DES/assets/110965468/0c86fd57-6c6d-4d85-b5a0-e1bbec2eef1c">
 
 
 5.4 最终置换盒
 
+<img width="296" alt="image" src="https://github.com/Xialanshan/S_DES/assets/110965468/5b7f688e-91d7-4023-b817-8dbfc714eb4f">
 
 
 5.5 扩展置换盒
 
+<img width="267" alt="image" src="https://github.com/Xialanshan/S_DES/assets/110965468/6e41529e-64df-4af4-a76c-2894344c0984">
 
 
 5.6替换盒
 
 SBox1:
 
+![image](https://github.com/Xialanshan/S_DES/assets/110965468/0c301247-8a5c-44ac-aaae-5d7f54b253b6)
 
 
 SBox2:
 
+![image](https://github.com/Xialanshan/S_DES/assets/110965468/5d99bc14-fa64-4a1b-a1ae-59fbd1a6412b)
 
 
 SPBox:
 
 
+![image](https://github.com/Xialanshan/S_DES/assets/110965468/9323a4f5-f7e2-4ee2-8cbe-7ccab616f9e1)
 
 
 
